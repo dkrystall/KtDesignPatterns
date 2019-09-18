@@ -18,15 +18,12 @@ class Subscriber(private val subject: Subject, private val name: String): Observ
         this.subject.addObserver(this)
         println("$name has subscribed!")
     }
-
     fun unsubscribe(){
         this.subject.removeObserver(this)
         println("$name has un-subscribed :(")
     }
 
-    private fun printNewsletter(newsletter: String?){
-        println(newsletter)
-    }
+    private fun printNewsletter(newsletter: String?){ println(newsletter) }
 
     /**
      * This function is called from the Subject this is subscribed to.

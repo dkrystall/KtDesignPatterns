@@ -16,9 +16,9 @@ fun main(args: Array<String>) {
     val observers = arrayOf(mike, kevin, esmerelda, hector, letty)
     observers.forEach { it.subscribe() }
 
-    (1..20).forEach {
-        NewsLetterPublisher.publishNewsletter("Exciting news! We have raised $it million dollars!")
-        when(it){
+    (1..20).forEach {dollar ->
+        NewsLetterPublisher.publishNewsletter("Exciting news! We have raised $dollar million dollars!")
+        when(dollar){
             3 -> {mike.unsubscribe(); esmerelda.unsubscribe()}
             10 -> {kevin.unsubscribe(); hector.unsubscribe()}
         }
