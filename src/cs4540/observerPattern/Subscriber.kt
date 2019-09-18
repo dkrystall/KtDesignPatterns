@@ -1,21 +1,18 @@
 package cs4540.observerPattern
 
 /**
+ * KtDesignPatterns
+ * @author David Krystall
+ * ret
+ * 9/14/19
+ */
+
+/**
  *  Concrete Observer class, used to subscribe to Subject
  *  @property subject the Observable Object that this subscribes to.
  *  @property name the name of the Subscriber
  */
-
-class Subscriber(subject: Subject, name: String?): Observer {
-    private var subject:Subject
-    var name:String?
-    init {
-        this.subject = subject
-        this.name = name
-    }
-    init {
-        this.subject = subject
-    }
+class Subscriber(private val subject: Subject, private val name: String): Observer {
 
     fun subscribe(){
         this.subject.addObserver(this)
@@ -27,8 +24,7 @@ class Subscriber(subject: Subject, name: String?): Observer {
         println("$name has un-subscribed :(")
     }
 
-
-    private fun printNewsletter(newsletter: String){
+    private fun printNewsletter(newsletter: String?){
         println(newsletter)
     }
 

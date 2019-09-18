@@ -1,21 +1,22 @@
 package cs4540.observerPattern
 
 /**
+ * KtDesignPatterns
+ * @author David Krystall
+ * ret
+ * 9/14/19
+ */
+
+/**
  * @property subscribers List of Observers listening to this Subject
  */
 object NewsLetterPublisher: Subject {
-    private val subscribers = mutableListOf(Subscriber(NewsLetterPublisher, null))
-    lateinit var newsletter:String
-
-    init{
-        subscribers.removeAt(0) //setting the list type puts a null Subscriber in it
-    }
+    private val subscribers = mutableListOf<Observer>()
+    internal var newsletter:String? = null
 
     override fun addObserver(observer: Observer) {
         super.addObserver(observer)
-        if(observer is Subscriber) {
-            subscribers.add(observer)
-        }
+        subscribers.add(observer)
     }
 
     override fun removeObserver(observer: Observer) {
@@ -28,12 +29,10 @@ object NewsLetterPublisher: Subject {
      */
     override fun notifyObservers() {
         super.notifyObservers()
-        for(subscriber in subscribers) {
-            subscriber.update()
-        }
+        subscribers.forEach{ it.update() }
     }
 
-    fun publishNewsletter(newsletter: String){
+    fun publishNewsletter(newsletter: String?){
         this.newsletter = newsletter
         notifyObservers()
     }

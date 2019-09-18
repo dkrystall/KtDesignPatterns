@@ -1,6 +1,12 @@
 package cs4540.observerPattern
 
-//The thing that wants to know about the subject, and wants updates
+/**
+ * KtDesignPatterns
+ * @author David Krystall
+ * ret
+ * 9/14/19
+ */
+
 interface Observer {
     fun update(){
         //this gets called by the subject
