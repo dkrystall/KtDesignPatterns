@@ -8,7 +8,5 @@ package cs4540.observerPattern
  */
 
 interface Observer {
-    fun update(x: String){
-        //this gets called by the subject
-    }
+    fun update(x: String)
 }
