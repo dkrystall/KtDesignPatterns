@@ -7,6 +7,6 @@ package cs4540.observerPattern
  * 9/14/19
  */
 
-interface Observer {
-    fun update(x: String)
+interface Observer<T> {
+    fun update(value: T)
 }
