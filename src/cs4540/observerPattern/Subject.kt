@@ -8,8 +8,8 @@ package cs4540.observerPattern
  */
 
 //The thing being observed, will have many observers.
-interface Subject {
-    fun addObserver(observer: Observer<String>)
-    fun removeObserver(observer: Observer<String>)
+interface Subject<T> {
+    fun addObserver(observer: T)
+    fun removeObserver(observer: T)
     fun notifyObservers()
 }

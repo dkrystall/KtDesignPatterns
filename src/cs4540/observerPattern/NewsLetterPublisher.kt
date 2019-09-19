@@ -11,7 +11,7 @@ package cs4540.observerPattern
  * @property subscribers List of Observers listening to this Subject
  */
 
-object NewsLetterPublisher: Subject {
+object NewsLetterPublisher: Subject<Observer<String>> {
     private val subscribers = mutableListOf<Observer<String>>()
     private var newsletter:String? = null
 
