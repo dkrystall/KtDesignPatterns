@@ -28,9 +28,9 @@ class Subscriber(private val subject: Subject, private val name: String): Observ
     /**
      * This function is called from the Subject this is subscribed to.
      */
-    override fun update(){
+    override fun update(x: String){
         if(this.subject is NewsLetterPublisher){
-            printNewsletter(NewsLetterPublisher.newsletter)
+            printNewsletter(x)
         }
     }
 }

@@ -10,9 +10,10 @@ package cs4540.observerPattern
 /**
  * @property subscribers List of Observers listening to this Subject
  */
+
 object NewsLetterPublisher: Subject {
     private val subscribers = mutableListOf<Observer>()
-    internal var newsletter:String? = null
+    private var newsletter:String? = null
 
     override fun addObserver(observer: Observer) {
         super.addObserver(observer)
@@ -29,7 +30,7 @@ object NewsLetterPublisher: Subject {
      */
     override fun notifyObservers() {
         super.notifyObservers()
-        subscribers.forEach{ it.update() }
+        subscribers.forEach{ this.newsletter?.let { it1 -> it.update(it1) } }
     }
 
     fun publishNewsletter(newsletter: String?){
