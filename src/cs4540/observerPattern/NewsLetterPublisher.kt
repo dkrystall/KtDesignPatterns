@@ -27,7 +27,7 @@ object NewsLetterPublisher: Subject {
      * This calls the update function in all the Observers
      */
     override fun notifyObservers() {
-        subscribers.forEach{ this.newsletter?.let { it1 -> it.update(it1) } }
+        subscribers.forEach{ this.newsletter?.let { notification -> it.update(notification) } }
     }
 
     fun publishNewsletter(newsletter: String?){
