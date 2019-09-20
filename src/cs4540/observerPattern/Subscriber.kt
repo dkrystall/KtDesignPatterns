@@ -12,7 +12,7 @@ package cs4540.observerPattern
  *  @property subject the Observable Object that this subscribes to.
  *  @property name the name of the Subscriber
  */
-class Subscriber(private val subject: Subject<Observer<String>>, private val name: String): Observer<String> {
+class Subscriber(private val subject: Subject<Observer<String>,Int>, private val name: String): Observer<String> {
 
     fun subscribe(){
         this.subject.addObserver(this)
