@@ -12,4 +12,5 @@ interface Subject<T> {
     fun addObserver(observer: T)
     fun removeObserver(observer: T)
     fun notifyObservers()
+    fun setState(state: Int)
 }

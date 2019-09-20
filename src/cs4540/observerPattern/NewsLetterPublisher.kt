@@ -14,6 +14,7 @@ package cs4540.observerPattern
 object NewsLetterPublisher: Subject<Observer<String>> {
     private val subscribers = mutableListOf<Observer<String>>()
     private var newsletter:String? = null
+    private var x:Int? = null
 
     override fun addObserver(observer: Observer<String>) {
         subscribers.add(observer)
@@ -30,8 +31,15 @@ object NewsLetterPublisher: Subject<Observer<String>> {
         subscribers.forEach{ this.newsletter?.let { newsletter -> it.update(newsletter) } }
     }
 
-    fun publishNewsletter(newsletter: String?){
+    fun publishNewsletter(newsletter: String = "Exciting news! We have raised $x million dollars!"){
         this.newsletter = newsletter
         notifyObservers()
+    }
+
+    /**
+     * Sets the dollar value for this publisher's newsletter
+     */
+    override fun setState(state: Int){
+        this.x = state
     }
 }

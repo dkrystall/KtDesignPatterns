@@ -17,7 +17,8 @@ fun main(args: Array<String>) {
     observers.forEach { it.subscribe() }
 
     (1..20).forEach {dollar ->
-        NewsLetterPublisher.publishNewsletter("Exciting news! We have raised $dollar million dollars!")
+        NewsLetterPublisher.setState(dollar)
+        NewsLetterPublisher.publishNewsletter()
         when(dollar){
             3 -> {mike.unsubscribe(); esmerelda.unsubscribe()}
             10 -> {kevin.unsubscribe(); hector.unsubscribe()}
