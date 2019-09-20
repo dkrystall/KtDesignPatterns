@@ -14,7 +14,7 @@ package cs4540.observerPattern
 object NewsLetterPublisher: Subject<Observer<String>,Int> {
     private val subscribers = mutableListOf<Observer<String>>()
     private var newsletter:String? = null
-    private var x:Int? = null
+    private var x:Int = 0
 
     override fun addObserver(observer: Observer<String>) {
         subscribers.add(observer)
